@@ -6,16 +6,13 @@ import signup from "../mutations/Signup";
 import currentUserQuery from "../queries/CurrentUser";
 
 class LoginForm extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     errors: []
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      errors: []
+    };
+  }
 
-  state = {
-    errors: []
-  };
   onSubmit({ email, password }) {
     this.props
       .mutate({
