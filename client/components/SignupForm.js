@@ -5,12 +5,18 @@ import AuthForm from "./AuthForm";
 import signup from "../mutations/Signup";
 import currentUserQuery from "../queries/CurrentUser";
 
-class LoginForm extends Component {
+class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       errors: []
     };
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextProps.data.user) {
+      hashHistory.push("/dashboard");
+    }
   }
 
   onSubmit({ email, password }) {
@@ -22,7 +28,6 @@ class LoginForm extends Component {
         },
         refetchQueries: [{ query: currentUserQuery }]
       })
-      .then(() => hashHistory.push("/dashboard"))
       .catch(res => {
         const errors = res.graphQLErrors.map(error => error.message);
         this.setState({ errors });
@@ -42,4 +47,4 @@ class LoginForm extends Component {
   }
 }
 
-export default graphql(signup)(LoginForm);
+export default graphql(currentUserQuery)(graphql(signup)(SignupForm));
