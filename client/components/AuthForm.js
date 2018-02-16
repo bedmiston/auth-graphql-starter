@@ -17,13 +17,13 @@ class AuthForm extends Component {
   render() {
     return (
       <div className="row">
-        <form className="col s6" onSubmit={() => this.onSubmit(event)}>
+        <form className="col s6" onSubmit={this.onSubmit.bind(this)}>
           <div className="input-field">
             <label>Email</label>
             <input
               type="text"
               value={this.state.email}
-              onChange={event => this.setState({ email: event.target.value })}
+              onChange={e => this.setState({ email: e.target.value })}
             />
           </div>
           <div className="input-field">
@@ -31,7 +31,7 @@ class AuthForm extends Component {
             <input
               type="password"
               value={this.state.password}
-              onChange={event => this.setState({ password: e.target.value })}
+              onChange={e => this.setState({ password: e.target.value })}
             />
           </div>
           <button className="btn" type="submit">
