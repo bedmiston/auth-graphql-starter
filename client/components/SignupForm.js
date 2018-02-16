@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { hashHistory } from "react-router";
 import AuthForm from "./AuthForm";
-import signupUser from "../mutations/SignupUser";
+import signup from "../mutations/Signup";
 import currentUserQuery from "../queries/CurrentUser";
 
 class LoginForm extends Component {
@@ -28,4 +28,4 @@ class LoginForm extends Component {
   }
 }
 
-export default graphql(signupUser)(LoginForm);
+export default graphql(signup)(LoginForm);
