@@ -22,7 +22,7 @@ class LoginForm extends Component {
         },
         refetchQueries: [{ query: currentUserQuery }]
       })
-      .then(() => hashHistory.push("/"))
+      .then(() => hashHistory.push("/dashboard"))
       .catch(res => {
         const errors = res.graphQLErrors.map(error => error.message);
         this.setState({ errors });
