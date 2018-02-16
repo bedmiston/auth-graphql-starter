@@ -9,6 +9,12 @@ class AuthForm extends Component {
     };
   }
 
+  displayErrors() {
+    this.props.errors.map(error => {
+      return <div key={error}>{error}</div>;
+    });
+  }
+
   onSubmit(e) {
     event.preventDefault();
     const { email, password } = this.state;
@@ -34,6 +40,9 @@ class AuthForm extends Component {
               value={this.state.password}
               onChange={e => this.setState({ password: e.target.value })}
             />
+          </div>
+          <div className="errors">
+            {this.props.errors.map(error => <div key={error}>{error}</div>)}
           </div>
           <button className="btn" type="submit">
             {this.props.signup ? "SignUp" : "Login"}
