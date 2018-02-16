@@ -19,7 +19,12 @@ class LoginForm extends Component {
   }
 
   render() {
-    return <AuthForm submitted={this.signupHandler} />;
+    return (
+      <div>
+        <h3>Signup</h3>
+        <AuthForm submitted={this.signupHandler.bind(this)} />
+      </div>
+    );
   }
 }
 
