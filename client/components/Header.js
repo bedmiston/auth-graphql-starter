@@ -8,7 +8,9 @@ class Header extends Component {
   logoutHandler(event) {
     event.preventDefault();
 
-    this.props.mutate().then(() => this.props.data.refetch());
+    this.props.mutate({
+      refetchQueries: [{ query: currentUserQuery }]
+    });
   }
 
   renderButtons() {
