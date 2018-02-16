@@ -6,7 +6,7 @@ import login from "../mutations/Login";
 import currentUserQuery from "../queries/CurrentUser";
 
 class LoginForm extends Component {
-  loginHandler(email, password) {
+  onSubmit({ email, password }) {
     this.props
       .mutate({
         variables: {
@@ -22,7 +22,7 @@ class LoginForm extends Component {
     return (
       <div>
         <h3>Login</h3>
-        <AuthForm submitted={this.loginHandler.bind(this)} />
+        <AuthForm onSubmit={this.onSubmit.bind(this)} />
       </div>
     );
   }

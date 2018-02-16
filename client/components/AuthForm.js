@@ -11,7 +11,7 @@ class AuthForm extends Component {
 
   onSubmit(e) {
     event.preventDefault();
-    this.props.submitted(this.state.email, this.state.password);
+    this.props.onSubmit(this.state);
   }
 
   render() {
