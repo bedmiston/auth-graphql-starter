@@ -19,7 +19,6 @@ class Header extends Component {
       return <div />;
     }
 
-    console.log(user);
     if (user) {
       return (
         <div>
